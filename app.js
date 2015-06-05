@@ -27,13 +27,14 @@ app.get("/puppies", function(req, res){
 
 // if you go to puppies/:id render res.render("puppies")
 
-app.get("/puppies/:id"), function(req, res) {
-	var id = req.params.id;
-	render("id")
-}
 
 app.get("/puppies/new", function(req, res){
 	res.render("puppies")
+})
+
+app.get("/puppies/:id", function(req, res) {
+	var somethingElse = req.params.id;
+	res.render("id", {puppies:puppies, somethingElse:somethingElse});
 })
 
 app.listen(3000, function () {
